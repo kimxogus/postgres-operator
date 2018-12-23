@@ -15,6 +15,8 @@ spec:
         app: {{ template "postgres-operator.name" . }}
         release: {{ .Release.Name }}
         name: "postgres-operator"
+      annotations:
+        checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
     spec:
       serviceAccountName: postgres-operator
       containers:

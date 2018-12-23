@@ -60,15 +60,15 @@ config:
       LogStatement:  none
       LogMinDurationStatement:  60000
     PrimaryStorage: nfsstorage
-    BackupStorage: nfsstorage
-    ReplicaStorage: nfsstorage
+    BackupStorage: storageos
+    ReplicaStorage: storageos
     Storage:
       hostpathstorage:
-        AccessMode:  ReadWriteMany
+        AccessMode:  ReadWriteOnce
         Size:  1G
         StorageType:  create
       nfsstorage:
-        AccessMode:  ReadWriteMany
+        AccessMode:  ReadWriteOnce
         Size:  1G
         StorageType:  create
         SupplementalGroups:  65534
